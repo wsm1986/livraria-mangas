@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+	
+<head>
+	<title th:text="${livro.nome}">Viña</title>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors/upload.min.css}"/>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1 th:text="${livro.nome}">Viña</h1>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="rol">
+			<div class="col-sm-3">
+				<ul class="list-group">
+					<li  class="list-group-item">  <img th:src="@{'/images/'+${livro.foto}}" /></li>
+					<li class="list-group-item" th:text="|Volume :${livro.volume}|">750</li>
+					<li class="list-group-item" th:text="|R$: ${livro.valor}|">58.00</li>
+					<li class="list-group-item" th:text="|Ultimo Vol. Lido ${livro.ult_leitura}|">1</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<th:block layout:fragment="javascript-extra">
+	<script th:src="@{/javascripts/vendors/uikit.min.js}"></script>
+	<script th:src="@{/javascripts/vendors/upload.min.js}"></script>
+	<script th:src="@{/javascripts/vinho.upload-foto.js}"></script>
+</th:block>
+
+</body>
+</html>
