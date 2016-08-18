@@ -17,13 +17,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404"),
 							new ErrorPage(HttpStatus.FORBIDDEN, "/403")));
 	}
-	/*
-	@Bean
+	
+	/*@Bean
 	public DomainClassConverter<FormattingConversionService> domainClassConverter(
 			FormattingConversionService conversionService) {
 		return new DomainClassConverter<FormattingConversionService>(conversionService);
-	}
-	*/
+	}*/
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -31,3 +30,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 	
 }
+

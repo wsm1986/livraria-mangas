@@ -22,6 +22,8 @@ public class LivrosController {
 	@Autowired
 	private Livros livro;
 	
+	private Livro livroSelecionado;
+
 	@Autowired
 	private CadastroLivroService cadastroVinhoService;
 	
@@ -33,7 +35,7 @@ public class LivrosController {
 	}
 	
 	@RequestMapping("/novo")
-	public ModelAndView novo(Livro vinho) {
+	public ModelAndView novo(Livro livro) {
 		ModelAndView mv = new ModelAndView("/livros/CadastroLivro");
 		return mv;
 	}
@@ -52,9 +54,19 @@ public class LivrosController {
 	@RequestMapping("/{codigo}")
 	public ModelAndView visualizar(@PathVariable("codigo") Livro livro) {
 		ModelAndView mv = new ModelAndView("/livros/DetalheLivro");
-		
 		mv.addObject("livro", livro);
 		return mv;
 	}
-	
+	@RequestMapping("/{codigo}/update/{livro}")
+	public ModelAndView update(@PathVariable("livro") Livro livro) {
+		ModelAndView mv = new ModelAndView("/livros/UpdateLivro");
+		livroSelecionado = livro;
+		mv.addObject("livro", livroSelecionado);
+		return mv;
+	}
+	@RequestMapping(value = "/livro/salvar/{livro}", method = RequestMethod.POST)
+	public ModelAndView alteracao(@PathVariable("codigo") Livro livro) {
+		//cadastroVinhoService.salvar(livro);
+		return new ModelAndView("redirect:/livro/novo");
+	}
 }
