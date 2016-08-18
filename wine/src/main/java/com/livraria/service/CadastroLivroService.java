@@ -14,8 +14,6 @@ public class CadastroLivroService {
 	
 	
 	public void salvar(Livro livro) {
-		livro.setUlt_leitura(0);
-		livro.setUlt_vol_comprado(0);
 		this.livro.save(livro);
 	}
 }

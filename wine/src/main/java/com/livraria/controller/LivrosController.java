@@ -64,9 +64,9 @@ public class LivrosController {
 		mv.addObject("livro", livroSelecionado);
 		return mv;
 	}
-	@RequestMapping(value = "/livro/salvar/{livro}", method = RequestMethod.POST)
-	public ModelAndView alteracao(@PathVariable("codigo") Livro livro) {
-		//cadastroVinhoService.salvar(livro);
+	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
+	public ModelAndView alteracao(Livro livro) {
+		cadastroVinhoService.salvar(livro);
 		return new ModelAndView("redirect:/livro/novo");
 	}
 }
