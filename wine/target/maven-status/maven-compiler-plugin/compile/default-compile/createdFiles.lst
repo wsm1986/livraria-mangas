@@ -1,0 +1,12 @@
+com/livraria/model/Livro.class
+com/livraria/dto/Financeiro.class
+com/livraria/config/AmazonConfig.class
+com/livraria/controller/FinanceiroController.class
+com/livraria/LivrariaApplication.class
+com/livraria/controller/LivrosController.class
+com/livraria/controller/ErrorPagesController.class
+com/livraria/config/SecurityConfig.class
+com/livraria/repository/Livros.class
+com/livraria/service/CadastroLivroService.class
+com/livraria/config/WebConfig.class
+com/livraria/controller/SegurancaController.class
