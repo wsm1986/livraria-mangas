@@ -32,11 +32,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public ViewResolver getViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("templates/");
-		// resolver.setSuffix(".html");
-		return resolver;
+	public InternalResourceViewResolver internalResourceViewResolve() {
+		InternalResourceViewResolver resolve = new InternalResourceViewResolver();
+		resolve.setPrefix("templates/");
+		resolve.setSuffix(".html");
+		resolve.setExposedContextBeanNames("carrinhoCompras"); // Disponibiliza
+																// o Bean para o
+																// jsp
+		return resolve;
 	}
+
 
 }
