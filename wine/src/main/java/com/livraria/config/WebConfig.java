@@ -1,13 +1,7 @@
 package com.livraria.config;
 
-import org.springframework.beans.BeansException;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.ErrorPage;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -33,6 +27,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
+		System.out.println("PASSOU AQUI ");
 		// SpringResourceTemplateResolver automatically integrates with Spring's
 		// own
 		// resource resolution infrastructure, which is highly recommended.
