@@ -23,7 +23,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolve() {
 		InternalResourceViewResolver resolve = new InternalResourceViewResolver();
-		resolve.setPrefix("/templates/");
+		resolve.setPrefix("/templates/**");
 		resolve.setSuffix(".html");
 		resolve.setExposedContextBeanNames("livraria-mangas"); // Disponibiliza
 																// o Bean para o
