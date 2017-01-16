@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -16,6 +17,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return (container ->
 		container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404"),
 							new ErrorPage(HttpStatus.FORBIDDEN, "/403")));
+	}
+	
+	
+	@Bean
+	public InternalResourceViewResolver internalResourceViewResolve() {
+		InternalResourceViewResolver resolve = new InternalResourceViewResolver();
+		resolve.setPrefix("classpath:/WEB-INF/templates/");
+		resolve.setSuffix(".html");
+		resolve.setExposedContextBeanNames("livraria-mangas"); // Disponibiliza
+																// o Bean para o
+																// jsp
+		return resolve;
 	}
 	
 	/*@Bean
@@ -28,6 +41,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addRedirectViewController("/", "/livro/novo");
 	}
-	
 }
 
