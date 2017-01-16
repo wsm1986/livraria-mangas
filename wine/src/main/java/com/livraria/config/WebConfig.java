@@ -15,15 +15,9 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 @Configuration
-public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
-	private ApplicationContext applicationContext;
 
-	@Bean
-	public EmbeddedServletContainerCustomizer containerCustomizer() {
-		return (container -> container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404"),
-				new ErrorPage(HttpStatus.FORBIDDEN, "/403")));
-	}
 
 	/*
 	 * @Bean public DomainClassConverter<FormattingConversionService>
@@ -43,7 +37,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		// own
 		// resource resolution infrastructure, which is highly recommended.
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-		templateResolver.setApplicationContext(this.applicationContext);
 		templateResolver.setPrefix("/templates/");
 		templateResolver.setSuffix(".html");
 		// HTML is the default value, added here for the sake of clarity.
@@ -74,9 +67,5 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return viewResolver;
 	}
 
-    public void setApplicationContext(final ApplicationContext applicationContext)
-            throws BeansException {
-        this.applicationContext = applicationContext;
-    }
 
 }
