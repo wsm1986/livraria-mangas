@@ -27,8 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/livro/novo").permitAll()
-				.antMatchers("/livro/**").permitAll()
+				.antMatchers("/livro/novo").hasRole("CADASTRAR_VINHO")
+				.antMatchers("/livro/**").hasRole("LISTAR_VINHO")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
