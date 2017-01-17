@@ -23,7 +23,7 @@ public class FinanceiroController {
 	
 	@RequestMapping
 	public ModelAndView pesquisa() {
-		ModelAndView mv = new ModelAndView("/livros/Financeiro");
+		ModelAndView mv = new ModelAndView("livros/Financeiro");
 		List<Livro> lista = livro.findAll();
 		Financeiro fin;
 		List<Financeiro> listaF = new ArrayList<>();
