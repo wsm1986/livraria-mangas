@@ -30,7 +30,7 @@ public class LivrosController {
 	
 	@RequestMapping
 	public String pesquisa(Model mv) {
-		mv.addAttribute("livros", livro.findAll());
+		mv.addAttribute("livros",   livro.findAll());
 		return "/livros/ListaLivro";
 	}
 	
