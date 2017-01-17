@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +29,9 @@ public class LivrosController {
 	private CadastroLivroService cadastroVinhoService;
 	
 	@RequestMapping
-	public ModelAndView pesquisa() {
-		ModelAndView mv = new ModelAndView("/livros/ListaLivro");
-		mv.addObject("livros", livro.findAll());
-		return mv;
+	public String pesquisa(Model mv) {
+		mv.addAttribute("livros", livro.findAll());
+		return "/livros/ListaLivro";
 	}
 	
 	@RequestMapping("/novo")
