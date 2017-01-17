@@ -29,14 +29,14 @@ public class LivrosController {
 	
 	@RequestMapping
 	public ModelAndView pesquisa() {
-		ModelAndView mv = new ModelAndView("/livros/ListaLivro");
+		ModelAndView mv = new ModelAndView("livros/ListaLivro");
 		mv.addObject("livros", livro.findAll());
 		return mv;
 	}
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/CadastroLivro");
+		ModelAndView mv = new ModelAndView("livros/CadastroLivro");
 		return mv;
 	}
 	
@@ -53,13 +53,13 @@ public class LivrosController {
 	
 	@RequestMapping("/{codigo}")
 	public ModelAndView visualizar(@PathVariable("codigo") Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/DetalheLivro");
+		ModelAndView mv = new ModelAndView("livros/DetalheLivro");
 		mv.addObject("livro", livro);
 		return mv;
 	}
 	@RequestMapping("/{codigo}/update/{livro}")
 	public ModelAndView update(@PathVariable("livro") Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/UpdateLivro");
+		ModelAndView mv = new ModelAndView("livros/UpdateLivro");
 		livroSelecionado = livro;
 		mv.addObject("livro", livroSelecionado);
 		return mv;
