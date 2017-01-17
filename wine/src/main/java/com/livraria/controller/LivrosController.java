@@ -31,14 +31,12 @@ public class LivrosController {
 	@RequestMapping
 	public String pesquisa(Model mv) {
 		mv.addAttribute("livros",   livro.findAll());
-		return "/livros/ListaLivro";
+		return "livros/ListaLivro";
 	}
 	
 	@RequestMapping(value="/uo",method = RequestMethod.GET)
 	public String list(Model model) {
-
-
-		return "/livros/ListaLivro";
+		return "books/list";
 	}
 	
 	@RequestMapping("/novo")
