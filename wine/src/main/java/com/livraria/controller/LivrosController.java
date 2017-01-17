@@ -34,6 +34,13 @@ public class LivrosController {
 		return "/livros/ListaLivro";
 	}
 	
+	@RequestMapping(value="/uo",method = RequestMethod.GET)
+	public String list(Model model) {
+
+
+		return "/livros/ListaLivro";
+	}
+	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Livro livro) {
 		ModelAndView mv = new ModelAndView("/livros/CadastroLivro");
