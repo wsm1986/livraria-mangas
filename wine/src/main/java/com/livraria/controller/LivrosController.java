@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,19 +28,15 @@ public class LivrosController {
 	private CadastroLivroService cadastroVinhoService;
 	
 	@RequestMapping
-	public String pesquisa(Model mv) {
-		mv.addAttribute("livros",   livro.findAll());
-		return "livros/ListaLivro";
-	}
-	
-	@RequestMapping(value="/uo",method = RequestMethod.GET)
-	public String list(Model model) {
-		return "books/list";
+	public ModelAndView pesquisa() {
+		ModelAndView mv = new ModelAndView("livros/ListaLivro");
+		mv.addObject("livros", livro.findAll());
+		return mv;
 	}
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/CadastroLivro");
+		ModelAndView mv = new ModelAndView("livros/CadastroLivro");
 		return mv;
 	}
 	
@@ -53,18 +48,18 @@ public class LivrosController {
 		
 		cadastroVinhoService.salvar(livro);
 		attributes.addFlashAttribute("mensagem", "Livro salvo com sucesso!");
-		return new ModelAndView("redirect:/livro/novo");
+		return new ModelAndView("redirect:livro/novo");
 	}
 	
 	@RequestMapping("/{codigo}")
 	public ModelAndView visualizar(@PathVariable("codigo") Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/DetalheLivro");
+		ModelAndView mv = new ModelAndView("livros/DetalheLivro");
 		mv.addObject("livro", livro);
 		return mv;
 	}
 	@RequestMapping("/{codigo}/update/{livro}")
 	public ModelAndView update(@PathVariable("livro") Livro livro) {
-		ModelAndView mv = new ModelAndView("/livros/UpdateLivro");
+		ModelAndView mv = new ModelAndView("livros/UpdateLivro");
 		livroSelecionado = livro;
 		mv.addObject("livro", livroSelecionado);
 		return mv;
@@ -72,6 +67,6 @@ public class LivrosController {
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public ModelAndView alteracao(Livro livro) {
 		cadastroVinhoService.salvar(livro);
-		return new ModelAndView("redirect:/livro/novo");
+		return new ModelAndView("redirect:livro/novo");
 	}
 }
