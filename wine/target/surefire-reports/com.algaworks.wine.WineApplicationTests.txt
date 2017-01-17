@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.algaworks.wine.WineApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.802 sec - in com.algaworks.wine.WineApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.405 sec - in com.algaworks.wine.WineApplicationTests
