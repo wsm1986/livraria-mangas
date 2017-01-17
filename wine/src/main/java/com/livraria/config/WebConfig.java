@@ -5,10 +5,12 @@ import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+@EnableWebMvc
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -23,7 +25,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolve() {
 		InternalResourceViewResolver resolve = new InternalResourceViewResolver();
-		resolve.setPrefix("classpath:/WEB-INF/templates");
+		resolve.setPrefix("classpath:/templates");
 		resolve.setSuffix(".html");
 		resolve.setExposedContextBeanNames("livraria-mangas"); 
 		return resolve;
