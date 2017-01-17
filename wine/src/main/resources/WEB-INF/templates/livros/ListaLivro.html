@@ -7,42 +7,6 @@
 <title>Listagem de vinhos</title>
 </head>
 
-<body>
-	<section layout:fragment="conteudo">
 
-		<div class="page-header">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-xs-10">
-						<h1>Listagem de Livros</h1>
-					</div>
-
-					<div class="col-xs-2">
-						<div class="aw-page-header-controls">
-							<a class="btn btn-primary" th:href="@{/livro/novo}"> <i
-								class="fa  fa-plus-circle"></i> <span
-								class="hidden-xs  hidden-sm">Novo Livro</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-
-		<div class="container-fluid">
-			<div class="table-responsive">
-				<ul class="list-inline">
-					<li th:each="livro : ${livros}">
-					<a th:href="@{/livro/{codigo}(codigo=${livro.codigo})}">
-							<img th:src="@{'/images/'+${livro.foto}}" />
-					</a>
-					</li>
-				</ul>
-
-			</div>
-		</div>
-
-	</section>
 </body>
 </html>
